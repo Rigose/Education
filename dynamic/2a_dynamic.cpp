@@ -10,10 +10,10 @@ void get_list(list_t**);
 
 int main (){
     using namespace std;
-    list_t* s;
-    fill_list(&s);
-    list_t* m = s;
-
+    list_t *s, *m;
+    s = new list_t;
+    m = s;
+   
     while (m != nullptr){
         fill_list(&m);
     }
@@ -36,15 +36,13 @@ void fill_list(list_t** m){
     if (x == 0) {
         *m = nullptr;
     }else{
-        *m = (*m)->n = new list_t;
         (*m)->d = x;
+        *m = (*m)->n = new list_t;
     }
 }
 
 void get_list(list_t** m){
-    using namespace std;
-    
-    cout << (*m)->d << '\n';
+    std::cout << (*m)->d << '\n';
     *m = (*m)->n;
 }
 
